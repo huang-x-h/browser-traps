@@ -16,7 +16,11 @@
 7. 当元素高度为 `0` 时，它父元素的 `scrollWidth` 在不同浏览器值不一样，示例查看 https://stackoverflow.com/questions/45809092/element-scrollwidth-value-different-in-ie-chrome-firefox
 8.  <details>
         <summary>`JavaScript` 处理数字问题</summary>
+    问题场景
 
+    前端页面通过 `ajax` 请求获取序列值，服务端返回的是 `Long` 型数值 `20171024005229743`，这时前端获取转化成 `Number` 时就变成 `20171024005229744`
+
+    示例
     ```js
     +'20171024005229743' //output 20171024005229744
     ```
