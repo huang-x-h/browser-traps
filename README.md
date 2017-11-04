@@ -14,3 +14,22 @@
     - 协议调用必须相同
     - 只能是异步
 7. 当元素高度为 `0` 时，它父元素的 `scrollWidth` 在不同浏览器值不一样，示例查看 https://stackoverflow.com/questions/45809092/element-scrollwidth-value-different-in-ie-chrome-firefox
+8.  <details>
+        <summary>`JavaScript` 处理数字问题</summary>
+
+    ```js
+    +'20171024005229743' //output 20171024005229744
+    ```
+
+    `JavaScript` 里的 `Number` 是采用双精度浮点型 (IEEE-754 double-precision floating-point format numbers)
+
+    它有一个安全整数范围 `-(2^53 - 1) ~ (2^53 - 1)` 即 `± 9007199254740991`，当超过这个范围后就不安全了
+
+    示例
+
+    ```js
+    9007199254740993 === 9007199254740992 // output true
+    ```
+
+    在 `ECMAScript 2015` 提供了 `Number.MAX_SAFE_INTEGER/MIN_SAFE_INTEGER/isSafeInteger()` 来进行安全整形判断
+    </details>
