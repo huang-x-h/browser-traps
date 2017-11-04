@@ -32,4 +32,8 @@
     ```
 
     在 `ECMAScript 2015` 提供了 `Number.MAX_SAFE_INTEGER/MIN_SAFE_INTEGER/isSafeInteger()` 来进行安全整形判断
+
+    在 `Java` 里, `Integer` 整形范围 `-(2^31 - 1) ~ 2^31 - 1`, `Long` 长整型范围 `-(2^63 - 1) ~ 2^63 - 1`
+
+    **因此服务端对应如果要做 `JSON` 对象传递前台时，长整型需要转成字符串返回**
     </details>
