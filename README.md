@@ -15,7 +15,7 @@
     - 只能是异步
 7. 当元素高度为 `0` 时，它父元素的 `scrollWidth` 在不同浏览器值不一样，示例查看 https://stackoverflow.com/questions/45809092/element-scrollwidth-value-different-in-ie-chrome-firefox
 8.  <details>
-        <summary>`JavaScript` 处理数字问题</summary>
+      <summary>`JavaScript` 处理数字问题</summary>
     问题场景
 
     前端页面通过 `ajax` 请求获取序列值，服务端返回的是 `Long` 型数值 `20171024005229743`，这时前端获取转化成 `Number` 时就变成 `20171024005229744`
@@ -40,4 +40,31 @@
     在 `Java` 里, `Integer` 整形范围 `-(2^31 - 1) ~ 2^31 - 1`, `Long` 长整型范围 `-(2^63 - 1) ~ 2^63 - 1`
 
     **因此服务端对应如果要做 `JSON` 对象传递前台时，长整型需要转成字符串返回**
+    </details>
+
+9.  <details>
+      <summary>`IE8` 下事件对象不会传递到 `setTimeout` 函数里</summary>
+
+      示例
+
+      ```js
+      $('button').on('click', function(e) {
+        setTimeout(function() {
+          // 这里 e.originalEvent 获取是空对象，访问里面属性报错 Member not found.
+          console.log(e.originalEvent);
+        }, 100);
+      })
+      ```
+
+      这个时候在 `IE8` 下要做对象深拷贝处理
+
+      ```diff
+      $('button').on('click', function(e) {
+        + var copyE = $.extend(true, {}, e);
+
+        setTimeout(function() {
+          console.log(copyE.originalEvent);
+        }, 100);
+      })
+      ```
     </details>
